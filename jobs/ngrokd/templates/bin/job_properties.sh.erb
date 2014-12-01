@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+#
+# ngrokd properties
+#
+
+# Directory to store the ngrokd configuration files
+export NGROKD_CONF_DIR=${JOB_DIR}/config
+
+# Directory to store the ngrokd logs
+export NGROKD_LOG_DIR=${LOG_DIR}
+
+# Directory to store the ngrokd process IDs
+export NGROKD_PID_DIR=${RUN_DIR}
+
+# Directory to store the ngrokd data files
+export NGROKD_STORE_DIR=${STORE_DIR}
+
+# Directory to store the ngrokd temp files
+export NGROKD_TMP_DIR=${TMP_DIR}
+
+# Directory to store the ngrokd TSL certificates
+export NGROKD_CERTS_DIR=${NGROKD_CONF_DIR}/ssl
+
+# User which will own the ngrokd services
+export NGROKD_USER="<%= p('ngrokd.user') %>"
+
+# Group which will own the ngrokd services
+export NGROKD_GROUP="<%= p('ngrokd.group') %>"
+
+# Domain where the tunnels are hosted
+export NGROKD_DOMAIN="<%= p('ngrokd.domain') %>"
+
+# Public address for HTTP connections, empty string to disable
+export NGROKD_HTTP_ADDRESS="<%= p('ngrokd.http_address') %>"
+
+# Public address listening for HTTPS connections, emptry string to disable
+export NGROKD_HTTPS_ADDRESS="<%= p('ngrokd.https_address') %>"
+
+# Public address listening for ngrok client
+export NGROKD_TUNNEL_ADDRESS="<%= p('ngrokd.tunnel_address') %>"

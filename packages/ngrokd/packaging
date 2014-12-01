@@ -1,0 +1,11 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# We grab the latest versions that are in the directory
+NGROKD_VERSION=`ls -r ngrokd/ngrokd-* | sed 's/ngrokd\/ngrokd-\(.*\)/\1/' | head -1`
+
+# Copy ngrokd package
+echo "Copying ngrokd..."
+mkdir -p ${BOSH_INSTALL_TARGET}/bin
+cp -a ${BOSH_COMPILE_TARGET}/ngrokd/ngrokd-${NGROKD_VERSION} ${BOSH_INSTALL_TARGET}/bin/ngrokd
+chmod +x ${BOSH_INSTALL_TARGET}/bin/ngrokd

@@ -1,0 +1,5 @@
+---
+name: ngrokd
+dependencies: {}
+files:
+  - ngrokd/ngrokd-1.7

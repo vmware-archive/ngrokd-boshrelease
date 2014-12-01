@@ -1,0 +1,5 @@
+check process ngrokd
+  with pidfile /var/vcap/sys/run/ngrokd/ngrokd.pid
+  start program "/var/vcap/packages/bosh-helpers/monit_debugger ngrokd_ctl '/var/vcap/jobs/ngrokd/bin/ngrokd_ctl start'"
+  stop program "/var/vcap/packages/bosh-helpers/monit_debugger ngrokd_ctl '/var/vcap/jobs/ngrokd/bin/ngrokd_ctl stop'"
+  group vcap

@@ -1,0 +1,34 @@
+---
+name: ngrokd
+packages:
+  - bosh-helpers
+  - ngrokd
+
+templates:
+  bin/job_properties.sh.erb: bin/job_properties.sh
+  bin/ngrokd_ctl.erb: bin/ngrokd_ctl
+  config/ngrokd.crt.erb: config/ngrokd.crt
+  config/ngrokd.key.erb: config/ngrokd.key
+
+properties:
+  ngrokd.user:
+    description: 'User which will own the ngrokd services'
+    default: 'root'
+  ngrokd.group:
+    description: 'Group which will own the ngrokd services'
+    default: 'vcap'
+  ngrokd.http_address:
+    description: 'Public address for HTTP connections, empty string to disable'
+    default: ':80'
+  ngrokd.https_address:
+    description: 'Public address listening for HTTPS connections, emptry string to disable'
+    default: ':443'
+  ngrokd.tunnel_address:
+    description: 'Public address listening for ngrok client'
+    default: ':4443'
+  ngrokd.domain:
+    description: 'Domain where the tunnels are hosted'
+  ngrokd.tls_cert:
+    description: 'TLS certificate (PEM encoded)'
+  ngrokd.tls_key:
+    description: 'TLS private key (PEM encoded)'

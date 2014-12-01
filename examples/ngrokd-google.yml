@@ -1,0 +1,71 @@
+<% director_uuid = '<CHANGE-ME>' %>
+<% static_ip = 'CHANGE-ME' %>
+<% deployment_name = 'ngrokd' %>
+---
+name: <%= deployment_name %>
+director_uuid: <%= director_uuid %>
+
+releases:
+ - name: ngrokd
+   version: latest
+
+compilation:
+  workers: 1
+  network: default
+  reuse_compilation_vms: true
+  cloud_properties:
+    instance_type: n1-standard-8
+
+update:
+  canaries: 1
+  canary_watch_time: 30000-60000
+  update_watch_time: 30000-60000
+  max_in_flight: 32
+  serial: false
+
+networks:
+  - name: default
+    type: dynamic
+    cloud_properties:
+      tags:
+        - bosh
+        - <%= deployment_name %>
+
+  - name: static
+    type: vip
+    cloud_properties: {}
+
+resource_pools:
+  - name: default
+    network: default
+    size: 1
+    stemcell:
+      name: bosh-google-kvm-ubuntu-trusty
+      version: latest
+    cloud_properties:
+      instance_type: n1-standard-2
+
+jobs:
+  - name: ngrokd
+    templates:
+      - name: ngrokd
+    instances: 1
+    resource_pool: default
+    networks:
+      - name: default
+        default: [dns, gateway]
+      - name: static
+        static_ips:
+          - <%= static_ip %>
+
+properties:
+  ngrokd:
+    domain: <%= static_ip %>.xip.io
+    tls_cert:  |
+      -----BEGIN CERTIFICATE-----
+      < ADD YOUR DOMAIN TLS CERT>
+      -----END CERTIFICATE-----
+    tls_key:  |
+      -----BEGIN RSA PRIVATE KEY-----
+      < ADD YOUR DOMAIN TLS KEY>
+      -----END RSA PRIVATE KEY-----
