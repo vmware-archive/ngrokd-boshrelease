@@ -12,7 +12,7 @@ To use this bosh release, first upload it to your bosh:
 bosh target BOSH_HOST
 git clone https://github.com/cf-platform-eng/ngrokd-boshrelease.git
 cd ngrokd-boshrelease
-bosh upload release releases/ngrokd-1.yml
+bosh upload release releases/ngrokd/ngrokd-1.yml
 ```
 
 ### Create a BOSH deployment manifest
