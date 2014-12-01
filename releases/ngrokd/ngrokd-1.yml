@@ -1,0 +1,21 @@
+---
+packages:
+- name: bosh-helpers
+  version: 55717f488eb12fd47c95fd524ab1cd6304c7ce7e
+  sha1: a43504708d8531f4ea669b5e65d619bba136c8ed
+  fingerprint: 55717f488eb12fd47c95fd524ab1cd6304c7ce7e
+  dependencies: []
+- name: ngrokd
+  version: 1a608dbb12a2be3130cb654e332fcdbf6c0d0764
+  sha1: 915f29e97de22c21e8234c8c6df8aeb7adf0ebbd
+  fingerprint: 1a608dbb12a2be3130cb654e332fcdbf6c0d0764
+  dependencies: []
+jobs:
+- name: ngrokd
+  version: 98ab46fd64428560d5735968f61d5e191f4ced51
+  fingerprint: 98ab46fd64428560d5735968f61d5e191f4ced51
+  sha1: 13d4d82fda6e69ce7fb7551a99da16e61eaf7d86
+commit_hash: 4301cd76
+uncommitted_changes: true
+name: ngrokd
+version: '1'
