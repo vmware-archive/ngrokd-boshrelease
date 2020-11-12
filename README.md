@@ -1,3 +1,5 @@
+# ngrokd-boshrelease is no longer actively maintained by VMware.
+
 # BOSH Release for ngrok daemon
 
 One of the fastest ways to get a [ngrok](https://github.com/inconshreveable/ngrok) server running on any cloud infrastructure is too deploy this BOSH release.
